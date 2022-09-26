@@ -141,8 +141,9 @@ function SWEP:PrimaryAttack()
 
     local Owner = self:GetOwner()
     local trace = Owner:GetEyeTrace()
-    if not IsValid(trace.Entity) then return end
-    local ent, class = trace.Entity, string.lower(trace.Entity:GetClass() or "")
+    local ent = trace.Entity
+    if not IsValid(ent) then return end
+    local class = string.lower(ent:GetClass() or "")
     local data
 
     if class == "sent_keypad" then
